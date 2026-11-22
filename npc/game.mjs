@@ -123,4 +123,6 @@ $('import').onchange = async (e) => {
     showError(err);
   }
 };
-$('game').src = new URL('game/index.html', document.baseURI).href;
+const game = $('game');
+// Attach the bridge before navigating the iframe. The static build supplies a versioned URL.
+game.src = game.dataset.src || './game/index.html';
