@@ -1,0 +1,46 @@
+[
+  {
+    "id": "qwen-2b",
+    "repo": "unsloth/Qwen3.5-2B-GGUF",
+    "revision": "f6d5376be1edb4d416d56da11e5397a961aca8ae",
+    "file": "Qwen3.5-2B-Q4_K_M.gguf",
+    "bytes": 1280835840,
+    "sha256": "aaf42c8b7c3cab2bf3d69c355048d4a0ee9973d48f16c731c0520ee914699223",
+    "name": "Qwen3.5-2B",
+    "web": true,
+    "card": "https://huggingface.co/Qwen/Qwen3.5-2B"
+  },
+  {
+    "id": "lfm-1.2b",
+    "repo": "LiquidAI/LFM2.5-1.2B-Instruct-GGUF",
+    "revision": "8ed288026e23958ad9dfa92d53ed773a8eee7125",
+    "file": "LFM2.5-1.2B-Instruct-Q4_K_M.gguf",
+    "bytes": 730895168,
+    "sha256": "b1b3de114215d9507409a662a501a631095a479a419584e8a2ded6304b19b4f5",
+    "name": "LFM2.5-1.2B-Instruct",
+    "web": true,
+    "card": "https://huggingface.co/LiquidAI/LFM2.5-1.2B-Instruct"
+  },
+  {
+    "id": "qwen-0.8b",
+    "repo": "unsloth/Qwen3.5-0.8B-GGUF",
+    "revision": "6ab461498e2023f6e3c1baea90a8f0fe38ab64d0",
+    "file": "Qwen3.5-0.8B-Q4_K_M.gguf",
+    "bytes": 532517120,
+    "sha256": "bd258782e35f7f458f8aced1adc053e6e92e89bc735ba3be89d38a06121dc517",
+    "name": "Qwen3.5-0.8B",
+    "web": true,
+    "card": "https://huggingface.co/Qwen/Qwen3.5-0.8B"
+  },
+  {
+    "id": "nemotron-4b",
+    "repo": "bartowski/Nemotron-Mini-4B-Instruct-GGUF",
+    "revision": "fb49cde090c86092d89905bea2ffc41c23c2615e",
+    "file": "Nemotron-Mini-4B-Instruct-Q4_K_M.gguf",
+    "bytes": 2697387072,
+    "sha256": "2bf02846dbd45e9580b9338b90505fb54e00d185713d4b7f06699e2d5d298e48",
+    "name": "Nemotron-Mini-4B-Instruct",
+    "web": false,
+    "card": "https://huggingface.co/nvidia/Nemotron-Mini-4B-Instruct"
+  }
+]

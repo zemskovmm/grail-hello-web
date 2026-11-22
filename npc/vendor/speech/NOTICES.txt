@@ -1,0 +1,24 @@
+Grail NPC Lab — browser speech runtime
+
+KittenTTS-web / CEPhonemizer (KittenML; Apache-2.0)
+Source: https://github.com/KittenML/KittenTTS-web/tree/c846fe92858f3447f4912226471f5a63983b3f94
+CEPhonemizer source and build recipe: vendor/cephonemizer and scripts/build-cephonemizer.cjs in that revision.
+This deployment wraps the prebuilt HTML bundle as an ES module and removes its unused libmp3lame WASM payload.
+The remaining wasm-media-encoders JavaScript glue is MIT. See the accompanying component notices.
+CEPhonemizer is compiled to asm.js; see accompanying Emscripten, musl, and LLVM libc++ notices.
+
+ONNX Runtime Web 1.26.0 (Microsoft; MIT): JavaScript and matching WASM.
+Package: https://www.npmjs.com/package/onnxruntime-web/v/1.26.0
+Source: https://github.com/microsoft/onnxruntime/tree/v1.26.0
+See ONNXRUNTIME-LICENSE.txt and ONNXRUNTIME-ThirdPartyNotices.txt.
+
+No model, voice embeddings, or eSpeak dictionary data are distributed with this site.
+Only after an explicit speech load are the model and voice files acquired from the pinned Apache-2.0 model cards:
+https://huggingface.co/KittenML/kitten-tts-nano-0.8-int8/tree/84781d74e29ee25217551556398b42f80593a813
+https://huggingface.co/KittenML/kitten-tts-micro-0.8/tree/1ccf72b2c2048fd17efac7de2fab32d10e225084
+The first load also retrieves 264,479 bytes of separate English pronunciation data from eSpeak NG
+(GPL v3 or later; ESPEAK-DICTIONARY-LICENSE.txt). The source text files are used unmodified:
+https://raw.githubusercontent.com/espeak-ng/espeak-ng/59eb19938f12e30881c81d86ce4a7de25414c9f4/dictsource/en_rules
+https://raw.githubusercontent.com/espeak-ng/espeak-ng/59eb19938f12e30881c81d86ce4a7de25414c9f4/dictsource/en_list
+No telemetry is enabled. The model, voices, and both dictionary files are size- and SHA-256-verified
+before use, including on every new worker load from the browser's persistent cache.
