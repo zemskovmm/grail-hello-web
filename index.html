@@ -4,12 +4,16 @@
     rel="icon"
     href="./game/index.icon.png"
   /><title>First Light — Field Studies</title
-  ><link rel="stylesheet" href="./npc/ui.css" />
+  ><link rel="stylesheet" href="./npc/ui.css?v=f9ddfacf" />
   <main>
-    <nav aria-label="Scenes">
-      <button id="board" aria-pressed="true">First Light</button
-      ><button id="forge" aria-pressed="false" disabled>The Forge</button>
-    </nav>
+    <div class="game-toolbar">
+      <nav aria-label="Scenes">
+        <button id="board" aria-pressed="true">First Light</button>
+        <button id="forge" aria-pressed="false" disabled>The Forge</button>
+      </nav>
+      <label class="shader-picker">Shader <select id="shader" disabled><option>Loading…</option></select></label>
+      <span id="shader-error" role="status"></span>
+    </div>
     <div class="cols">
       <iframe id="game" title="Live Godot scene"></iframe>
       <aside id="drawer" hidden>
@@ -28,5 +32,5 @@
       </aside>
     </div>
   </main>
-  <script type="module" src="./npc/game.mjs"></script>
+  <script type="module" src="./npc/game.mjs?v=d9707a97"></script>
 </html>

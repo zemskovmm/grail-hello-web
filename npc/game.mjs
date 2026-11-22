@@ -2,6 +2,7 @@ import { parseCard } from './core.mjs';
 import { mount, readCardFile } from './panel.mjs';
 const $ = (id) => document.getElementById(id),
   asset = (n) => new URL(n, import.meta.url);
+const picker = $('shader');
 const catalog = await (await fetch(asset('./models.json'))).json();
 const first = 'lfm-1.2b';
 const models = [
@@ -13,12 +14,22 @@ const models = [
 let c = parseCard(await (await fetch(asset('./blacksmith.json'))).text()),
   runtime,
   handler,
+  appliedShader,
   seq = 0;
 const waiting = new Map();
 window.GrailNPC = Object.freeze({
-  attach(fn) {
+  attach(fn, modes, current) {
     handler = fn;
     $('forge').disabled = false;
+    if (!picker) return false;
+    if (!modes) {
+      picker.replaceChildren(new Option('Unavailable in this build'));
+      return false;
+    }
+    picker.replaceChildren(...Object.entries(JSON.parse(modes)).map(([id, title]) => new Option(title, id)));
+    picker.value = appliedShader = current;
+    picker.disabled = false;
+    return true;
   },
   publish(raw) {
     const s = JSON.parse(raw);
@@ -81,6 +92,20 @@ async function view(name) {
 function showError(e) {
   $('note').textContent = e.message;
 }
+picker?.addEventListener('change', async ({ target }) => {
+  target.disabled = true;
+  $('shader-error').textContent = '';
+  try {
+    const state = await op({ op: 'shader', name: target.value });
+    if (!state.ok) throw Error('Game refused this shader');
+    appliedShader = state.shader;
+  } catch (err) {
+    $('shader-error').textContent = err.message;
+  } finally {
+    target.value = appliedShader;
+    target.disabled = false;
+  }
+});
 $('board').onclick = () => {
   if (handler) view('board').catch(showError);
 };
